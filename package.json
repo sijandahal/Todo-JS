@@ -1,0 +1,21 @@
+{
+  "name": "todo-app-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sijandahal/Todo-JS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sijandahal/Todo-JS/issues"
+  },
+  "homepage": "https://github.com/sijandahal/Todo-JS#readme"
+}

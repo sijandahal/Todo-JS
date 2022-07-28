@@ -11,24 +11,59 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dist/output.css" />
     <script src="./script.js" defer></script>
     <title>Frontend Mentor | Todo app</title>
   </head>
   <body>
-    Todo
-    <div class="form-wrapper">
-      <form class="form-todo">
-        <input type="text" class="todoinput" id="todoinput" />
-      </form>
-      <div class="todo--list">
-        <ul class="todo--items"></ul>
+    <header class="bg-no-repeat bg-cover pb-80"></header>
+    <main class="max-w-[37.0625rem] w-full mx-auto px-6 relative -mt-64">
+      <div class="wrapper">
+        <div class="mb-10 top-wrapper">
+          <h1 class="text-[2rem] uppercase tracking-[1rem] font-bold text-white">Todo</h1>
+        </div>
+        <form class="form-todo">
+          <input
+            type="text"
+            class="w-full px-6 py-5 rounded-md todoinput bg-dark-desaturated-blue" placeholder="Create a new todo..."
+            id="todoinput"
+          />
+        </form>
+        <div class="w-full rounded-md todo--list bg-dark-desaturated-blue mt-7">
+          <ul class="mb-5 todo--items">
+            <li>
+     <input id="styled-checkbox-4" type="checkbox" value="value4" class = "custom-checkbox">
+    <label for="styled-checkbox-4">Fourth option</label>
+   
+     
+     </li>
+          </ul>
+            <div class="relative flex justify-between bottom--wrapper md:order-1">
+          <p class="todo-length"><span></span> items left</p>
+          
+          <div class="completed md:order-3">
+            <a href="#">Clear Completed</a>
+          </div>
+          <div class="absolute left-0 flex justify-center gap-5 px-6 py-5 transition-all rounded-md -bottom-24 state md:order-2 md:static bg-dark-desaturated-blue md:bg-transparent md:p-0 ">
+            <a href="#" class="all">All</a>
+            <a href="#" class="active">Active</a>
+            <a href="#" class="completed">Completed</a>
+          </div>
+        </div>
+        </div>
+      
+        
       </div>
-    </div>
-    <div class="bottom--wrapper">
-      <p class="todo-length"><span></span> items left</p>
-    </div>
+    </main>
+
     <!-- Add dynamic number -->
-    All Active Completed Clear Completed Drag and drop to reorder list
+   
 
     <div class="attribution">
       Challenge by
