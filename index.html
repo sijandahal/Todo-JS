@@ -26,41 +26,55 @@
     <main class="max-w-[37.0625rem] w-full mx-auto px-6 relative -mt-64">
       <div class="wrapper">
         <div class="mb-10 top-wrapper">
-          <h1 class="text-[2rem] uppercase tracking-[1rem] font-bold text-white">Todo</h1>
+          <h1
+            class="text-[2rem] uppercase tracking-[1rem] font-bold text-white"
+          >
+            Todo
+          </h1>
         </div>
         <form class="form-todo">
           <input
             type="text"
-            class="w-full px-6 py-5 rounded-md todoinput bg-dark-desaturated-blue" placeholder="Create a new todo..."
+            class="w-full px-6 py-5 rounded-md todoinput bg-dark-desaturated-blue"
+            placeholder="Create a new todo..."
             id="todoinput"
           />
         </form>
-        <div class="w-full rounded-md todo--list bg-dark-desaturated-blue mt-7">
-          <ul class="mb-5 todo--items">
-            <li>
-     <input id="styled-checkbox-4" type="checkbox" value="value4" class = "custom-checkbox">
-    <label for="styled-checkbox-4">Fourth option</label>
-   
-     
-     </li>
-          </ul>
-            <div class="relative flex justify-between bottom--wrapper md:order-1">
-          <p class="todo-length"><span></span> items left</p>
-          
-          <div class="completed md:order-3">
-            <a href="#">Clear Completed</a>
+        <div class="w-full rounded-md bg-dark-desaturated-blue mt-7">
+          <div class="mb-5 todo--items--wrap">
+            <div
+              class="todo--list w-full px-6 py-5 rounded-md bg-dark-desaturated-blue flex items-center justify-between"
+            >
+              <div class="flex items-center justify-center">
+                <span
+                  class="check w-6 h-6 items-center justify-center inline-flex rounded-full mr-5 bg-black"
+                >
+                  <img src="./images/icon-check.svg" alt="Checkmark" />
+                </span>
+                <p>Create a Project in front end mentor</p>
+              </div>
+
+              <button class="cross">
+                <img src="./images/icon-cross.svg" alt="" />
+              </button>
+            </div>
           </div>
-          <div class="absolute left-0 flex justify-center gap-5 px-6 py-5 transition-all rounded-md -bottom-24 state md:order-2 md:static bg-dark-desaturated-blue md:bg-transparent md:p-0 ">
-            <a href="#" class="all">All</a>
-            <a href="#" class="active">Active</a>
-            <a href="#" class="completed">Completed</a>
+          <div class="relative flex justify-between bottom--wrapper md:order-1">
+            <p class="todo-length"><span></span> items left</p>
+
+            <div class="completed md:order-3">
+              <a href="#">Clear Completed</a>
+            </div>
+            <div
+              class="absolute left-0 flex justify-center gap-5 px-6 py-5 transition-all rounded-md -bottom-24 state md:order-2 md:static bg-dark-desaturated-blue md:bg-transparent md:p-0"
+            >
+              <a href="#" class="all">All</a>
+              <a href="#" class="active">Active</a>
+              <a href="#" class="completed">Completed</a>
+            </div>
           </div>
         </div>
-        </div>
-      
-        
       </div>
     </main>
-  
   </body>
 </html>
