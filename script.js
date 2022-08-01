@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
   countElement();
-  deleteElement(); 
+  deleteElement();
   addClass();
   clearCompleted();
 });
@@ -8,7 +8,6 @@ window.addEventListener("load", () => {
 let form = document.querySelector(".form-todo");
 let inputValue = document.querySelector(".todoinput");
 const todoItemsWrapper = document.querySelector(".todo--items--wrap");
-
 let clearButton = document.querySelector(".clearcomp");
 let todoLength = document.querySelector(".todo-length span");
 
@@ -47,15 +46,8 @@ function addTodos() {
   `;
   countElement();
 
- 
-  
-
-      
-
- 
   //buttonsfooter
 }
-
 
 //addtodos
 
@@ -76,26 +68,21 @@ function countElement() {
 
 function addClass() {
   let todoItems = document.querySelectorAll(".todo--list .event");
-  todoItems.forEach(singleTodo => {
+  todoItems.forEach((singleTodo) => {
     singleTodo.addEventListener("click", () => {
-      
       singleTodo.classList.toggle("line-through");
     });
   });
 }
 
 function clearCompleted() {
- clearButton.addEventListener("click", function () {
-   let todoItems = document.querySelectorAll(".todo--list .event");
-   todoItems.forEach((singleTodo) => {
-     if (singleTodo.classList.contains("line-through")) {
-       singleTodo.parentNode.remove();
-       countElement();
-     }
-   });
- });
+  clearButton.addEventListener("click", function () {
+    let todoItems = document.querySelectorAll(".todo--list .event");
+    todoItems.forEach((singleTodo) => {
+      if (singleTodo.classList.contains("line-through")) {
+        singleTodo.parentNode.remove();
+        countElement();
+      }
+    });
+  });
 }
-
-
-
-

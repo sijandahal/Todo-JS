@@ -791,6 +791,10 @@ header {
   padding-bottom: 1.25rem;
 }
 
+.todo--list .event {
+  cursor: pointer;
+}
+
 @media (max-width:767px) {
   .bottom--wrapper {
     flex-wrap: wrap;

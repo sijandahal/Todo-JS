@@ -33,6 +33,11 @@ header {
   @apply pb-5 mb-5 border-b;
 }
 
+.todo--list .event {
+  @apply cursor-pointer;
+}
+
+
 
 @media (max-width:767px) {
     .bottom--wrapper {
