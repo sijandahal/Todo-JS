@@ -1,21 +1,27 @@
 window.addEventListener("load", () => {
   countElement();
-  deleteElement();
+  deleteElement(); 
+  addClass();
+  clearCompleted();
 });
 
 let form = document.querySelector(".form-todo");
 let inputValue = document.querySelector(".todoinput");
 const todoItemsWrapper = document.querySelector(".todo--items--wrap");
+
+let clearButton = document.querySelector(".clearcomp");
 let todoLength = document.querySelector(".todo-length span");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   addTodos();
+  addClass();
   deleteElement();
 });
 
 function addTodos() {
   let todoListItemsValue = inputValue.value;
+
   if (todoListItemsValue == "") {
     alert("Please enter something");
     return;
@@ -25,7 +31,7 @@ function addTodos() {
   <div
   class="todo--list w-full px-6 py-5 rounded-md bg-dark-desaturated-blue flex items-center justify-between"
 >
-  <div class="flex items-center justify-center">
+  <div class="flex items-center event flex-1">
     <span
       class="check w-6 h-6 items-center justify-center inline-flex rounded-full mr-5 bg-black"
     >
@@ -40,7 +46,17 @@ function addTodos() {
 </div>
   `;
   countElement();
+
+ 
+  
+
+      
+
+ 
+  //buttonsfooter
 }
+
+
 //addtodos
 
 function deleteElement() {
@@ -57,3 +73,29 @@ function deleteElement() {
 function countElement() {
   todoLength.innerHTML = document.querySelectorAll(".todo--list").length;
 }
+
+function addClass() {
+  let todoItems = document.querySelectorAll(".todo--list .event");
+  todoItems.forEach(singleTodo => {
+    singleTodo.addEventListener("click", () => {
+      
+      singleTodo.classList.toggle("line-through");
+    });
+  });
+}
+
+function clearCompleted() {
+ clearButton.addEventListener("click", function () {
+   let todoItems = document.querySelectorAll(".todo--list .event");
+   todoItems.forEach((singleTodo) => {
+     if (singleTodo.classList.contains("line-through")) {
+       singleTodo.parentNode.remove();
+       countElement();
+     }
+   });
+ });
+}
+
+
+
+

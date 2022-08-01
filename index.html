@@ -43,11 +43,11 @@
         <div class="w-full rounded-md bg-dark-desaturated-blue mt-7">
           <div class="mb-5 todo--items--wrap">
             <div
-              class="todo--list w-full px-6 py-5 rounded-md bg-dark-desaturated-blue flex items-center justify-between"
+              class="flex items-center justify-between w-full px-6 py-5 rounded-md todo--list bg-dark-desaturated-blue"
             >
-              <div class="flex items-center justify-center">
+              <div class="flex items-center flex-1 event">
                 <span
-                  class="check w-6 h-6 items-center justify-center inline-flex rounded-full mr-5 bg-black"
+                  class="inline-flex items-center justify-center w-6 h-6 mr-5 bg-black rounded-full check"
                 >
                   <img src="./images/icon-check.svg" alt="Checkmark" />
                 </span>
@@ -63,7 +63,7 @@
             <p class="todo-length"><span></span> items left</p>
 
             <div class="completed md:order-3">
-              <a href="#">Clear Completed</a>
+              <a href="#" class="clearcomp">Clear Completed</a>
             </div>
             <div
               class="absolute left-0 flex justify-center gap-5 px-6 py-5 transition-all rounded-md -bottom-24 state md:order-2 md:static bg-dark-desaturated-blue md:bg-transparent md:p-0"
