@@ -45,8 +45,6 @@ function addTodos() {
 </div>
   `;
   countElement();
-
-  //buttonsfooter
 }
 
 //addtodos
@@ -86,3 +84,41 @@ function clearCompleted() {
     });
   });
 }
+
+//filterbuttons
+
+let filterButtons = document.querySelector(".filter-buttons");
+
+filterButtons.addEventListener("click", (e) => {
+  if (e.target.classList.contains("completed")) {
+    let todoItems = document.querySelectorAll(".todo--list .event");
+    todoItems.forEach((singleTodo) => {
+      if (!singleTodo.classList.contains("line-through")) {
+        singleTodo.parentNode.style.display = "none";
+      }
+      else {
+        singleTodo.parentNode.style.display = "flex";
+      }
+    });
+  }
+
+  else if (e.target.classList.contains("active")) {
+    console.log("hello");
+    let todoItems = document.querySelectorAll(".todo--list .event");
+    todoItems.forEach((singleTodo) => {
+      if (singleTodo.classList.contains("line-through")) {
+        singleTodo.parentNode.style.display = "none";
+      }
+      else {
+        singleTodo.parentNode.style.display = "flex";
+      }
+    });
+  }
+
+  else {
+    let todoItems = document.querySelectorAll(".todo--list .event");
+    todoItems.forEach((singleTodo) => {
+      singleTodo.parentNode.style.display = "flex";
+    });
+  }
+});
