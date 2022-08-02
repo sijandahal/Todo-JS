@@ -668,8 +668,8 @@ body {
   max-width: 37.0625rem;
 }
 
-.flex-1 {
-  flex: 1 1 0%;
+.cursor-move {
+  cursor: move;
 }
 
 .items-center {
@@ -793,6 +793,13 @@ header {
 
 .todo--list .event {
   cursor: pointer;
+}
+
+.dragging {
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: hsl(280 87% 65% / var(--tw-border-opacity));
+  --tw-bg-opacity: 0.75;
 }
 
 @media (max-width:767px) {

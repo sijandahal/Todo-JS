@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
   deleteElement();
   addClass();
   clearCompleted();
+  dragElement();
 });
 
 let form = document.querySelector(".form-todo");
@@ -28,9 +29,10 @@ function addTodos() {
   inputValue.value = "";
   todoItemsWrapper.innerHTML += `
   <div
-  class="todo--list w-full px-6 py-5 rounded-md bg-dark-desaturated-blue flex items-center justify-between"
+  class="flex items-center justify-between w-full px-6 py-5 rounded-md cursor-move todo--list bg-dark-desaturated-blue draggable" draggable = "true"
 >
-  <div class="flex items-center event flex-1">
+  <div class="flex items-center event cursor-move" >
+
     <span
       class="check w-6 h-6 items-center justify-center inline-flex rounded-full mr-5 bg-black"
     >
@@ -45,10 +47,10 @@ function addTodos() {
 </div>
   `;
   countElement();
+  dragElement();
 }
 
 //addtodos
-
 function deleteElement() {
   const deleteButtons = document.querySelectorAll(".cross");
   deleteButtons.forEach((button) => {
@@ -74,7 +76,7 @@ function addClass() {
 }
 
 function clearCompleted() {
-  clearButton.addEventListener("click", function () {
+  clearButton.addEventListener("click", () => {
     let todoItems = document.querySelectorAll(".todo--list .event");
     todoItems.forEach((singleTodo) => {
       if (singleTodo.classList.contains("line-through")) {
@@ -86,39 +88,76 @@ function clearCompleted() {
 }
 
 //filterbuttons
-
 let filterButtons = document.querySelector(".filter-buttons");
-
 filterButtons.addEventListener("click", (e) => {
   if (e.target.classList.contains("completed")) {
     let todoItems = document.querySelectorAll(".todo--list .event");
     todoItems.forEach((singleTodo) => {
       if (!singleTodo.classList.contains("line-through")) {
         singleTodo.parentNode.style.display = "none";
-      }
-      else {
+      } else {
         singleTodo.parentNode.style.display = "flex";
       }
     });
-  }
-
-  else if (e.target.classList.contains("active")) {
+  } else if (e.target.classList.contains("active")) {
     console.log("hello");
     let todoItems = document.querySelectorAll(".todo--list .event");
     todoItems.forEach((singleTodo) => {
       if (singleTodo.classList.contains("line-through")) {
         singleTodo.parentNode.style.display = "none";
-      }
-      else {
+      } else {
         singleTodo.parentNode.style.display = "flex";
       }
     });
-  }
-
-  else {
+  } else {
     let todoItems = document.querySelectorAll(".todo--list .event");
     todoItems.forEach((singleTodo) => {
       singleTodo.parentNode.style.display = "flex";
     });
   }
 });
+
+//sortable
+
+function dragElement() {
+  const draggable = document.querySelectorAll(".todo--list");
+  const container = document.querySelector(".todo--items--wrap");
+  draggable.forEach((draggable) => {
+    draggable.addEventListener("dragstart", () => {
+      draggable.classList.add("dragging");
+    });
+
+    draggable.addEventListener("dragend", () => {
+      draggable.classList.remove("dragging");
+    });
+
+    container.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      const afterElement = getDragAfterElement(container, e.clientY);
+      const draggable = document.querySelector(".dragging");
+      if (afterElement == null) {
+        container.appendChild(draggable);
+      } else {
+        container.insertBefore(draggable, afterElement);
+      }
+    });
+  });
+}
+
+function getDragAfterElement(container, y) {
+  const draggableElements = [
+    ...container.querySelectorAll(".draggable:not(.dragging)"),
+  ];
+  return draggableElements.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
+}

@@ -37,6 +37,10 @@ header {
   @apply cursor-pointer;
 }
 
+.dragging {
+  @apply bg-opacity-75 border border-gradient-color-two;
+}
+
 
 
 @media (max-width:767px) {

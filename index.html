@@ -1,75 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./dist/output.css" />
-    <script src="./script.js" defer></script>
-    <title>Frontend Mentor | Todo app</title>
-  </head>
-  <body>
-    <header class="bg-no-repeat bg-cover pb-80"></header>
-    <main class="max-w-[37.0625rem] w-full mx-auto px-6 relative -mt-64">
-      <div class="wrapper">
-        <div class="mb-10 top-wrapper">
-          <h1
-            class="text-[2rem] uppercase tracking-[1rem] font-bold text-white"
-          >
-            Todo
-          </h1>
-          <div class="mode-switcher">
-            <img src="./images/icon-sun.svg" alt="">
-              <img src="./images/icon-moon.svg" alt="">
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./dist/output.css" />
+  <script src="./script.js" defer></script>
+  <title>Frontend Mentor | Todo app</title>
+</head>
+
+<body>
+  <header class="bg-no-repeat bg-cover pb-80"></header>
+  <main class="max-w-[37.0625rem] w-full mx-auto px-6 relative -mt-64">
+    <div class="wrapper">
+      <div class="mb-10 top-wrapper">
+        <h1 class="text-[2rem] uppercase tracking-[1rem] font-bold text-white">
+          Todo
+        </h1>
+        <div class="mode-switcher">
+          <img src="./images/icon-sun.svg" alt="" />
+          <img src="./images/icon-moon.svg" alt="" />
         </div>
-        <form class="form-todo">
-          <input
-            type="text"
-            class="w-full px-6 py-5 rounded-md todoinput bg-dark-desaturated-blue"
-            placeholder="Create a new todo..."
-            id="todoinput"
-          />
-        </form>
-        <div class="w-full rounded-md bg-dark-desaturated-blue mt-7">
-          <div class="mb-5 todo--items--wrap">
-            <div
-              class="flex items-center justify-between w-full px-6 py-5 rounded-md todo--list bg-dark-desaturated-blue"
-            >
-              <div class="flex items-center flex-1 event">
-                <span
-                  class="inline-flex items-center justify-center w-6 h-6 mr-5 bg-black rounded-full check"
-                >
-                  <img src="./images/icon-check.svg" alt="Checkmark" />
-                </span>
-                <p>Create a Project in front end mentor</p>
-              </div>
+      </div>
+      <form class="form-todo">
+        <input type="text" class="w-full px-6 py-5 rounded-md todoinput bg-dark-desaturated-blue"
+          placeholder="Create a new todo..." id="todoinput" />
+      </form>
 
-              <button class="cross">
-                <img src="./images/icon-cross.svg" alt="" />
-              </button>
+      <div class="w-full rounded-md bg-dark-desaturated-blue mt-7">
+        <div class="mb-5 todo--items--wrap">
+          <div
+            class="flex items-center justify-between w-full px-6 py-5 rounded-md cursor-move todo--list bg-dark-desaturated-blue draggable" draggable="true">
+            <div class="flex items-center event">
+              <span class="inline-flex items-center justify-center w-6 h-6 mr-5 bg-black rounded-full check">
+                <img src="./images/icon-check.svg" alt="Checkmark" />
+              </span>
+              <p>Create a Project in front end mentor</p>
             </div>
+            <button class="cross">
+              <img src="./images/icon-cross.svg" alt="" />
+            </button>
+          </div>
 
-            <div
-            class="flex items-center justify-between w-full px-6 py-5 rounded-md todo--list bg-dark-desaturated-blue"
-          >
-            <div class="flex items-center flex-1 event">
-              <span
-                class="inline-flex items-center justify-center w-6 h-6 mr-5 bg-black rounded-full check"
-              >
+          <div
+            class="flex items-center justify-between w-full px-6 py-5 rounded-md cursor-move todo--list bg-dark-desaturated-blue draggable" draggable="true">
+            <div class="flex items-center event">
+              <span class="inline-flex items-center justify-center w-6 h-6 mr-5 bg-black rounded-full check">
                 <img src="./images/icon-check.svg" alt="Checkmark" />
               </span>
               <p>Eat Dinner</p>
@@ -79,23 +61,23 @@
               <img src="./images/icon-cross.svg" alt="" />
             </button>
           </div>
-          </div>
-          <div class="relative flex justify-between bottom--wrapper md:order-1">
-            <p class="todo-length"><span></span> items left</p>
+        </div>
+        <div class="relative flex justify-between bottom--wrapper md:order-1">
+          <p class="todo-length"><span></span> items left</p>
 
-            <div class="completed md:order-3">
-              <a href="#" class="clearcomp">Clear Completed</a>
-            </div>
-            <div
-              class="absolute left-0 flex justify-center gap-5 px-6 py-5 transition-all rounded-md filter-buttons -bottom-24 state md:order-2 md:static bg-dark-desaturated-blue md:bg-transparent md:p-0"
-            >
-              <a href="#" class="all">All</a>
-              <a href="#" class="active">Active</a>
-              <a href="#" class="completed">Completed</a>
-            </div>
+          <div class="completed md:order-3">
+            <a href="#" class="clearcomp">Clear Completed</a>
+          </div>
+          <div
+            class="absolute left-0 flex justify-center gap-5 px-6 py-5 transition-all rounded-md filter-buttons -bottom-24 state md:order-2 md:static bg-dark-desaturated-blue md:bg-transparent md:p-0">
+            <a href="#" class="all">All</a>
+            <a href="#" class="active">Active</a>
+            <a href="#" class="completed">Completed</a>
           </div>
         </div>
       </div>
-    </main>
-  </body>
+    </div>
+  </main>
+</body>
+
 </html>
