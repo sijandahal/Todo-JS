@@ -29,7 +29,7 @@ function addTodos() {
   inputValue.value = "";
   todoItemsWrapper.innerHTML += `
   <div
-  class="flex items-center justify-between w-full px-6 py-5 rounded-md cursor-move todo--list bg-dark-desaturated-blue draggable" draggable = "true"
+  class="flex items-center justify-between w-full px-6 py-5 border-b cursor-move border-light-gray todo--list dark:bg-dark-desaturated-blue draggable" draggable = "true"
 >
   <div class="flex items-center event cursor-move" >
 
@@ -91,6 +91,7 @@ function clearCompleted() {
 let filterButtons = document.querySelector(".filter-buttons");
 filterButtons.addEventListener("click", (e) => {
   if (e.target.classList.contains("completed")) {
+    
     let todoItems = document.querySelectorAll(".todo--list .event");
     todoItems.forEach((singleTodo) => {
       if (!singleTodo.classList.contains("line-through")) {
@@ -100,7 +101,7 @@ filterButtons.addEventListener("click", (e) => {
       }
     });
   } else if (e.target.classList.contains("active")) {
-    console.log("hello");
+ 
     let todoItems = document.querySelectorAll(".todo--list .event");
     todoItems.forEach((singleTodo) => {
       if (singleTodo.classList.contains("line-through")) {
@@ -161,3 +162,18 @@ function getDragAfterElement(container, y) {
     { offset: Number.NEGATIVE_INFINITY }
   ).element;
 }
+
+//darkmodetoggle
+
+const themeSwitcher = document.querySelector(".mode-switcher");
+const header = document.querySelector(".site-header");
+
+themeSwitcher.addEventListener("click", () => {
+  if ( document.documentElement.classList.contains("dark")) {
+    header.style.backgroundImage = "url('../images/bg-desktop-dark.jpg')";
+    document.documentElement.classList.toggle("dark");
+  } else {
+    document.documentElement.classList.toggle("dark");
+      header.style.backgroundImage = "url('../images/bg-desktop-light.jpg')";
+  }
+});
