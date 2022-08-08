@@ -4,6 +4,7 @@ window.addEventListener("load", () => {
   addClass();
   clearCompleted();
   dragElement();
+  document.querySelector(".all").classList.add("open");
 });
 
 let form = document.querySelector(".form-todo");
@@ -88,38 +89,47 @@ function clearCompleted() {
 }
 
 //filterbuttons
-let filterButtons = document.querySelector(".filter-buttons");
-filterButtons.addEventListener("click", (e) => {
-  if (e.target.classList.contains("completed")) {
-    
-    let todoItems = document.querySelectorAll(".todo--list .event");
-    todoItems.forEach((singleTodo) => {
-      if (!singleTodo.classList.contains("line-through")) {
-        singleTodo.parentNode.style.display = "none";
-      } else {
+let filterButtonContainer = document.querySelector(".filter-buttons");
+let filterButtons = document.querySelectorAll(".filter-buttons a");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    removeOpenClass();
+    button.classList.add("open");
+    if (e.target.classList.contains("completed")) {
+      let todoItems = document.querySelectorAll(".todo--list .event");
+      todoItems.forEach((singleTodo) => {
+        if (!singleTodo.classList.contains("line-through")) {
+          singleTodo.parentNode.style.display = "none";
+        } else {
+          singleTodo.parentNode.style.display = "flex";
+        }
+      });
+    } else if (e.target.classList.contains("active")) {
+      let todoItems = document.querySelectorAll(".todo--list .event");
+      todoItems.forEach((singleTodo) => {
+        if (singleTodo.classList.contains("line-through")) {
+          singleTodo.parentNode.style.display = "none";
+        } else {
+          singleTodo.parentNode.style.display = "flex";
+        }
+      });
+    } else {
+      let todoItems = document.querySelectorAll(".todo--list .event");
+      todoItems.forEach((singleTodo) => {
         singleTodo.parentNode.style.display = "flex";
-      }
-    });
-  } else if (e.target.classList.contains("active")) {
- 
-    let todoItems = document.querySelectorAll(".todo--list .event");
-    todoItems.forEach((singleTodo) => {
-      if (singleTodo.classList.contains("line-through")) {
-        singleTodo.parentNode.style.display = "none";
-      } else {
-        singleTodo.parentNode.style.display = "flex";
-      }
-    });
-  } else {
-    let todoItems = document.querySelectorAll(".todo--list .event");
-    todoItems.forEach((singleTodo) => {
-      singleTodo.parentNode.style.display = "flex";
-    });
-  }
+      });
+    }
+  });
 });
 
-//sortable
+function removeOpenClass() {
+  filterButtons.forEach((button) => {
+    button.classList.remove("open");
+  });
+}
 
+//sortable
 function dragElement() {
   const draggable = document.querySelectorAll(".todo--list");
   const container = document.querySelector(".todo--items--wrap");
@@ -169,11 +179,11 @@ const themeSwitcher = document.querySelector(".mode-switcher");
 const header = document.querySelector(".site-header");
 
 themeSwitcher.addEventListener("click", () => {
-  if ( document.documentElement.classList.contains("dark")) {
+  if (document.documentElement.classList.contains("dark")) {
     header.style.backgroundImage = "url('../images/bg-desktop-dark.jpg')";
     document.documentElement.classList.toggle("dark");
   } else {
     document.documentElement.classList.toggle("dark");
-      header.style.backgroundImage = "url('../images/bg-desktop-light.jpg')";
+    header.style.backgroundImage = "url('../images/bg-desktop-light.jpg')";
   }
 });

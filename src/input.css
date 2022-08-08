@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply text-primary-color;
+    @apply text-dark-grayish-blue;
     font-family: 'Sora', sans-serif;
     font-size: 18px;
   }
@@ -120,4 +120,8 @@ display: none;
 .cross {
   @apply opacity-0 invisible transition-[opacity] duration-300;
 
+}
+
+.open {
+  @apply text-primary-color;
 }

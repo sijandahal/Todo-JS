@@ -419,7 +419,7 @@ video {
 
 body {
   --tw-text-opacity: 1;
-  color: hsl(220 98% 61% / var(--tw-text-opacity));
+  color: hsl(236 9% 61% / var(--tw-text-opacity));
   font-family: 'Sora', sans-serif;
   font-size: 18px;
 }
@@ -751,6 +751,11 @@ body {
   font-size: 2rem;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -776,12 +781,6 @@ body {
 .line-through {
   -webkit-text-decoration-line: line-through;
           text-decoration-line: line-through;
-}
-
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 header {
@@ -911,6 +910,11 @@ header {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
+}
+
+.open {
+  --tw-text-opacity: 1;
+  color: hsl(220 98% 61% / var(--tw-text-opacity));
 }
 
 .dark .dark\:bg-dark-blue {
