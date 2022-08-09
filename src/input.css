@@ -38,9 +38,6 @@ header {
   @apply cursor-pointer;
 }
 
-.dragging {
-  @apply bg-opacity-75 border border-gradient-color-two;
-}
 
 .event p {
   letter-spacing: -0.4px;
@@ -68,7 +65,11 @@ header {
 }
 
 .dragging {
-  background: pink;
+  @apply bg-light-bluish;
+}
+
+.dark .dragging {
+background : hsl(235, 21%, 11%)!important;
 }
 
 .checkmark {

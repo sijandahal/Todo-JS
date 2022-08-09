@@ -812,6 +812,10 @@ body {
           text-decoration-line: line-through;
 }
 
+.outline-0 {
+  outline-width: 0px;
+}
+
 header {
   background-image: url('../images/bg-desktop-light.jpg');
 }
@@ -850,13 +854,6 @@ header {
   cursor: pointer;
 }
 
-.dragging {
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: hsl(280 87% 65% / var(--tw-border-opacity));
-  --tw-bg-opacity: 0.75;
-}
-
 .event p {
   letter-spacing: -0.4px;
 }
@@ -884,7 +881,12 @@ header {
 }
 
 .dragging {
-  background: pink;
+  --tw-bg-opacity: 1;
+  background-color: hsl(236 33% 92% / var(--tw-bg-opacity));
+}
+
+.dark .dragging {
+  background : hsl(235, 21%, 11%)!important;
 }
 
 .checkmark {
@@ -962,6 +964,16 @@ header {
   color: hsl(220 98% 61% / var(--tw-text-opacity));
 }
 
+.hover\:text-light-grayish-blue-hover:hover {
+  --tw-text-opacity: 1;
+  color: hsl(236 33% 92% / var(--tw-text-opacity));
+}
+
+.hover\:text-very-dark-grayish-blue:hover {
+  --tw-text-opacity: 1;
+  color: hsl(235 19% 35% / var(--tw-text-opacity));
+}
+
 .dark .dark\:bg-dark-blue {
   --tw-bg-opacity: 1;
   background-color: hsl(235 21% 11% / var(--tw-bg-opacity));
@@ -975,6 +987,26 @@ header {
 .dark .dark\:bg-dark-desaturated-blue {
   --tw-bg-opacity: 1;
   background-color: hsl(235 24% 19% / var(--tw-bg-opacity));
+}
+
+.dark .dark\:text-light-graying-blue {
+  --tw-text-opacity: 1;
+  color: hsl(233 11% 84% / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-light-grayish-blue {
+  --tw-text-opacity: 1;
+  color: hsl(234 39% 85% / var(--tw-text-opacity));
+}
+
+.dark .dark\:hover\:text-light-grayish-blue-hover:hover {
+  --tw-text-opacity: 1;
+  color: hsl(236 33% 92% / var(--tw-text-opacity));
+}
+
+.dark .hover\:dark\:text-light-grayish-blue-hover:hover {
+  --tw-text-opacity: 1;
+  color: hsl(236 33% 92% / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {
