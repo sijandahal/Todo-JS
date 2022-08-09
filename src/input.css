@@ -5,7 +5,7 @@
 @layer base {
   body {
     @apply text-dark-grayish-blue;
-    font-family: 'Sora', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
   }
 }
@@ -18,8 +18,12 @@ header {
   @apply  rounded-md bg-dark-desaturated-blue;
 }
 
-.todo--items li, .bottom--wrapper {
+.todo--items li {
    @apply px-6 py-5;
+}
+
+.bottom--wrapper {
+  @apply px-6 py-[1.1rem];
 }
 
 .todo--items li:last-child {
@@ -38,7 +42,9 @@ header {
   @apply bg-opacity-75 border border-gradient-color-two;
 }
 
-
+.event p {
+  letter-spacing: -0.4px;
+}
 
 @media (max-width:767px) {
     .bottom--wrapper {
@@ -72,6 +78,11 @@ header {
 .event.line-through .checkmark {
   border: 0;
 }
+.event.line-through p {
+  @apply text-light-graying-blue;
+}
+
+
 
 .event.line-through .checkmark img {
  display: block;

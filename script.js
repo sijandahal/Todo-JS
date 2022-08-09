@@ -64,7 +64,7 @@ function deleteElement() {
 }
 
 function countElement() {
-  todoLength.innerHTML = document.querySelectorAll(".todo--list").length;
+  todoLength.innerHTML = document.querySelectorAll(".todo--list:not(.completed)").length;
 }
 
 function addClass() {
@@ -72,6 +72,8 @@ function addClass() {
   todoItems.forEach((singleTodo) => {
     singleTodo.addEventListener("click", () => {
       singleTodo.classList.toggle("line-through");
+      singleTodo.parentNode.classList.toggle("completed");
+      countElement();
     });
   });
 }
@@ -101,6 +103,7 @@ filterButtons.forEach((button) => {
       todoItems.forEach((singleTodo) => {
         if (!singleTodo.classList.contains("line-through")) {
           singleTodo.parentNode.style.display = "none";
+          console.log(singleTodo.parentNode)
         } else {
           singleTodo.parentNode.style.display = "flex";
         }
