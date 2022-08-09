@@ -103,7 +103,6 @@ filterButtons.forEach((button) => {
       todoItems.forEach((singleTodo) => {
         if (!singleTodo.classList.contains("line-through")) {
           singleTodo.parentNode.style.display = "none";
-          console.log(singleTodo.parentNode)
         } else {
           singleTodo.parentNode.style.display = "flex";
         }
